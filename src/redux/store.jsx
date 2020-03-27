@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { phoneBookReducer } from './phoneBookReducer';
-import { devToolsEnhancer } from 'redux-devtools-extension';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 const store = configureStore(
   {
     reducer: phoneBookReducer,
   },
-  devToolsEnhancer(),
+  composeWithDevTools(),
 );
 
 export default store;
