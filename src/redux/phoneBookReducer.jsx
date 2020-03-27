@@ -1,10 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { updateFilter, saveContact, deleteContact } from './phoneBookActions';
-
-const initialStore = {
-  contacts: [],
-  filter: '',
-};
+import initialStore from './initialStore';
 
 export const phoneBookReducer = createReducer(initialStore, {
   [updateFilter]: (state, action) => {
