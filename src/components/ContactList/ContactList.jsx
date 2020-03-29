@@ -4,31 +4,29 @@ import styles from './ContactList.module.css';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import slideTransition from '../../Transitions/Slide.module.css';
 
-const ContactList = ({ contacts, onDeleteContact }) => {
-  return (
-    <TransitionGroup component="ul" className={styles.list}>
-      {contacts.map(({ id, name, number }) => (
-        <CSSTransition
-          key={id}
-          timeout={250}
-          unmountOnExit
-          classNames={slideTransition}
-        >
-          <li key={id}>
-            <button
-              className={styles.button}
-              type="button"
-              onClick={() => onDeleteContact(id)}
-            >
-              Delete
-            </button>
-            {name}: {number}
-          </li>
-        </CSSTransition>
-      ))}
-    </TransitionGroup>
-  );
-};
+const ContactList = ({ contacts, onDeleteContact }) => (
+  <TransitionGroup component="ul" className={styles.list}>
+    {contacts.map(({ id, name, number }) => (
+      <CSSTransition
+        key={id}
+        timeout={250}
+        unmountOnExit
+        classNames={slideTransition}
+      >
+        <li key={id}>
+          <button
+            className={styles.button}
+            type="button"
+            onClick={() => onDeleteContact(id)}
+          >
+            Delete
+          </button>
+          {name}: {number}
+        </li>
+      </CSSTransition>
+    ))}
+  </TransitionGroup>
+);
 
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(

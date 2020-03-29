@@ -53,15 +53,7 @@ export default class App extends Component {
       ? this.setState(state => ({
           contacts: [...state.contacts, contactToAdd],
         }))
-      : this.setState(
-          prevState => ({ contactExists: !prevState.contactExists }),
-          () =>
-            setTimeout(() => {
-              this.setState(prevState => ({
-                contactExists: !prevState.contactExists,
-              }));
-            }, 1000),
-        );
+      : alert(`${contact.name} is already added to the contact list`);
   };
 
   deleteContact = id => {
